@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     # Ссылка "Яндекс" в хедере
-    header_yandex_link = (By.XPATH, ".//a[@class='Header_LogoYandex__3TSOI']")
+    HEADER_YANDEX_LINK = (By.XPATH, ".//a[@class='Header_LogoYandex__3TSOI']")
     # Ссылка "Самокат" в хедере
-    header_scooter_link = (By.XPATH, ".//a[@class='Header_LogoScooter__3lsAR']")
+    HEADER_SCOOTER_LINK = (By.XPATH, ".//a[@class='Header_LogoScooter__3lsAR']")
     # Кнопка "Заказать" в хедере
-    header_order_button = (By.XPATH, ".//button[@class='Button_Button__ra12g']")
+    HEADER_ORDER_BUTTON = (By.XPATH, ".//button[@class='Button_Button__ra12g']")

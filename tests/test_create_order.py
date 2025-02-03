@@ -19,8 +19,8 @@ class TestCreateOrder:
     @allure.title('Проверка создания заказа')
     @allure.description('Переходим к созданию азаказа, заполняем два шага с формами, проверяем что заказ создался' )
     @pytest.mark.parametrize('user_data, order_data', [
-        [Constants.UserData['user_1'], Constants.OrderData['order_1']],
-        [Constants.UserData['user_2'], Constants.OrderData['order_2']]
+        [Constants.USER_DATA['user_1'], Constants.ORDER_DATA['order_1']],
+        [Constants.USER_DATA['user_2'], Constants.ORDER_DATA['order_2']]
     ])
     def test_create_order(self, user_data, order_data):
         self.driver.get(Constants.BASE_URL)

@@ -13,9 +13,9 @@ class MainPage(BasePage):
 
     @allure.step('Прокуртка до кнопки "Заказать" и нажатие на нее')
     def click_order_button(self):
-        self.scroll_to_element_by_locator(MainPageLocators.order_button)
-        self.wait_visible_element(MainPageLocators.order_button)
-        self.click_element(MainPageLocators.order_button)
+        self.scroll_to_element_by_locator(MainPageLocators.ORDER_BUTTON)
+        self.wait_visible_element(MainPageLocators.ORDER_BUTTON)
+        self.click_element(MainPageLocators.ORDER_BUTTON)
 
     @allure.step('Прокрутка до вопроса FAQ, нажатие на него и проверка открытия текста')
     def open_faq(self, heading_locator, panel_locator):
@@ -28,6 +28,11 @@ class MainPage(BasePage):
         self.wait_visible_element(panel_locator)
         self.scroll_to_element_by_locator(panel_locator)
         return self.find_element(panel_locator).is_displayed()
+
+    @allure.step('Получение текста элемента')
+    def get_faq_text(self, panel_locator):
+        return self.get_text(panel_locator)
+
 
 
 

@@ -17,12 +17,13 @@ class TestFaqOpen:
 
     @allure.title('Проверка открытия элемнтов в блоке FAQ')
     @allure.description('Переходим к блоку, кликаем по заголовку вопроса, проверяем видимость ответа' )
-    @pytest.mark.parametrize('list_item', MainPageLocators.faq_list)
+    @pytest.mark.parametrize('list_item', MainPageLocators.FAQ_LIST)
     def test_faq_open(self, list_item):
         self.driver.get(Constants.BASE_URL)
         main_page = MainPage(self.driver)
         is_opened_faq = main_page.open_faq(list_item['heading'], list_item['panel'])
-        assert  is_opened_faq
+        panel_text = main_page.get_faq_text(list_item['panel'])
+        assert is_opened_faq and panel_text == list_item['text']
 
     @classmethod
     def teardown_class(cls):

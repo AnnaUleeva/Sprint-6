@@ -11,7 +11,7 @@ class Constants:
     YANDEX_URL = "https://dzen.ru/?yredirect=true"
 
     # Данные для ввода персональных данных
-    UserData = {
+    USER_DATA = {
         "user_1": {
             "name": "Джон",
             "surname": "Доу",
@@ -29,17 +29,28 @@ class Constants:
     }
 
     # Данные для ввода данных аренды
-    OrderData = {
+    ORDER_DATA = {
         "order_1": {
             "delivery_day_after": 0,
-            "scooter_color": [OrderPagesLocators.checkbox_scooter_color_grey, OrderPagesLocators.checkbox_scooter_color_black],
+            "scooter_color": [OrderPagesLocators.CHECKBOX_SCOOTER_COLOR_GREY, OrderPagesLocators.CHECKBOX_SCOOTER_COLOR_BLACK],
             "count_days_index": 0,
             "comment": "Какой-то комментарий"
         },
         "order_2": {
             "delivery_day_after": 3,
-            "scooter_color": [OrderPagesLocators.checkbox_scooter_color_black],
+            "scooter_color": [OrderPagesLocators.CHECKBOX_SCOOTER_COLOR_BLACK],
             "count_days_index": 6,
             "comment": "Какой-то очень-очень-очень ддлииииииииииииииииииинный комментарий"
         }
     }
+
+    FAQ_PANELS_TEXT = [
+        "Сутки — 400 рублей. Оплата курьеру — наличными или картой.",
+        "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.",
+        "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.",
+        "Только начиная с завтрашнего дня. Но скоро станем расторопнее.",
+        "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.",
+        "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.",
+        "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.",
+        "Да, обязательно. Всем самокатов! И Москве, и Московской области.",
+    ]

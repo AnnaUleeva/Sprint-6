@@ -28,39 +28,39 @@ class OrderPage(BasePage):
 
     @allure.step('Заполнение персональных данных')
     def set_personal_data(self, user):
-        self.send_keys(OrderPagesLocators.input_name, user['name'])
-        self.send_keys(OrderPagesLocators.input_surname, user['surname'])
-        self.send_keys(OrderPagesLocators.input_address, user['address'])
-        self.click_element(OrderPagesLocators.input_metro)
-        self.click_element_in_list(OrderPagesLocators.select_metro_item, user['metro_index'])
-        self.send_keys(OrderPagesLocators.input_phone, user['phone'])
-        self.click_element(OrderPagesLocators.next_button)
+        self.send_keys(OrderPagesLocators.INPUT_NAME, user['name'])
+        self.send_keys(OrderPagesLocators.INPUT_SURNAME, user['surname'])
+        self.send_keys(OrderPagesLocators.INPUT_ADDRESS, user['address'])
+        self.click_element(OrderPagesLocators.INPUT_METRO)
+        self.click_element_in_list(OrderPagesLocators.SELECT_METRO_ITEM, user['metro_index'])
+        self.send_keys(OrderPagesLocators.INPUT_PHONE, user['phone'])
+        self.click_element(OrderPagesLocators.NEXT_BUTTON)
 
     @allure.step('Заполнение данных аренды')
     def set_rent_data(self, order):
-        self.wait_visible_element(OrderPagesLocators.order_header)
-        self.click_element(OrderPagesLocators.input_rental_period)
-        self.click_element_in_list(OrderPagesLocators.input_rental_period_option, order['count_days_index'])
+        self.wait_visible_element(OrderPagesLocators.ORDER_HEADER)
+        self.click_element(OrderPagesLocators.INPUT_RENTAL_PERIOD)
+        self.click_element_in_list(OrderPagesLocators.INPUT_RENTAL_PERIOD_OPTION, order['count_days_index'])
         delivery_date = (date.today() + timedelta(days=order['delivery_day_after'])).strftime('%d.%m.%Y')
-        self.send_keys(OrderPagesLocators.input_delivery_date, delivery_date)
+        self.send_keys(OrderPagesLocators.INPUT_DELIVERY_DATE, delivery_date)
         self.click_checkboxes(order['scooter_color'])
-        self.send_keys(OrderPagesLocators.input_comment, order['comment'])
-        self.click_element(OrderPagesLocators.submit_button)
+        self.send_keys(OrderPagesLocators.INPUT_COMMENT, order['comment'])
+        self.click_element(OrderPagesLocators.SUBMIT_BUTTON)
 
     @allure.step('Подтверждение создания заказа')
     def confirm_create_order(self):
-        self.wait_visible_element(OrderPagesLocators.modal_submit_header)
-        self.click_element(OrderPagesLocators.modal_submit_ok_button)
+        self.wait_visible_element(OrderPagesLocators.MODAL_SUBMIT_HEADER)
+        self.click_element(OrderPagesLocators.MODAL_SUBMIT_OK_BUTTON)
 
     @allure.step('Закрытие модального окна об успешном создании заказа')
     def close_modal_success_create_order(self):
-        self.wait_visible_element(OrderPagesLocators.modal_success_header)
-        self.click_element(OrderPagesLocators.modal_success_show_status_button)
+        self.wait_visible_element(OrderPagesLocators.MODAL_SUCCESS_HEADER)
+        self.click_element(OrderPagesLocators.MODAL_SUCCESS_SHOW_STATUS_BUTTON)
 
     @allure.step('Проверка перехода к созданному заказу')
     def check_created_order(self):
-        self.wait_visible_element(OrderPagesLocators.order_cancel_button)
-        assert self.find_element(OrderPagesLocators.order_cancel_button).is_displayed()
+        self.wait_visible_element(OrderPagesLocators.ORDER_CANCEL_BUTTON)
+        assert self.find_element(OrderPagesLocators.ORDER_CANCEL_BUTTON).is_displayed()
 
     @allure.step('Проверка url на соответствие странице создания заказа')
     def check_order_page_url(self):

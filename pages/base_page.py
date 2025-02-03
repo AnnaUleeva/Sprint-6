@@ -37,7 +37,7 @@ class BasePage:
 
     @allure.step('Нажатие кнопки "Заказать" в хедере')
     def click_header_order_button(self):
-        self.click_element(BasePageLocators.header_order_button)
+        self.click_element(BasePageLocators.HEADER_ORDER_BUTTON)
 
     @allure.step('Добавить значение в инпут')
     def send_keys(self, locator, value):
@@ -52,13 +52,17 @@ class BasePage:
         self.wait_loading_url(url)
         assert self.driver.current_url == url
 
+    @allure.step('Получение текста элемента')
+    def get_text(self, locator):
+        return self.find_element(locator).text
+
     @allure.step('Нажатие логотипа "Самокат" и проверка url')
     def click_scooter_logo_with_check(self):
-        self.click_element(BasePageLocators.header_scooter_link)
+        self.click_element(BasePageLocators.HEADER_SCOOTER_LINK)
         self.check_url(Constants.BASE_URL)
 
     @allure.step('Нажатие логотипа "Яндекс" и проверка url')
     def click_yandex_logo_with_check(self):
-        self.click_element(BasePageLocators.header_yandex_link)
+        self.click_element(BasePageLocators.HEADER_YANDEX_LINK)
         self.driver.switch_to.window(self.driver.window_handles[-1])
         self.check_url(Constants.YANDEX_URL)
